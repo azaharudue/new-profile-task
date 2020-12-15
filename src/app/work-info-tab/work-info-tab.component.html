@@ -1,0 +1,96 @@
+<mat-expansion-panel
+  (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Personal data </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Private E-mail</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-hint>F.e yourname@example.com</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Personal phone-number</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-hint>+49171-23456789</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-sm-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Personal address</mat-label>
+          <input
+            matInput
+            placeholder="Placeholder"
+            [formControl]="cityControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-hint> F.e Kartoon street 123</mat-hint>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let street of filteredStreets | async"
+              [value]="street"
+            >
+              {{ street }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</mat-expansion-panel>
+<mat-divider></mat-divider>
+<mat-expansion-panel
+  (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false"
+>
+  <mat-expansion-panel-header>
+    <mat-panel-title> Work data </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Work email</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-hint>F.e yourname@companyname.com</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Work phone number</mat-label>
+          <input matInput placeholder="Placeholder" />
+          <mat-hint>F.e +49066666666</mat-hint>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="fill">
+          <mat-label>Company address</mat-label>
+          <input
+            matInput
+            placeholder="Placeholder"
+            [formControl]="cityControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-hint>F.e xyz street 01, Mars</mat-hint>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let street of filteredStreets | async"
+              [value]="street"
+            >
+              {{ street }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</mat-expansion-panel>
+<mat-divider></mat-divider>
